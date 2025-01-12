@@ -10,7 +10,7 @@ export default function Home() {
             Transforming Societies Through Technology
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl">
-            At Seismic Labs, we're committed to creating innovative solutions that drive positive change in communities worldwide.
+            At Seismic Labs, we&apos;re committed to creating innovative solutions that drive positive change in communities worldwide.
           </p>
         </div>
       </section>

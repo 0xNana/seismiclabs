@@ -132,7 +132,7 @@ export default function Services() {
         <div className="mt-16 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">Ready to Transform Your Business?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let's discuss how our services can help you achieve your goals and drive innovation in your organization.
+            Let&apos;s discuss how our services can help you achieve your goals and drive innovation in your organization.
           </p>
           <button className="px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
             Get in Touch

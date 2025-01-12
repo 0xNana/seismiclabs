@@ -22,7 +22,7 @@ export default function About() {
             <div>
               <h3 className="text-xl font-medium mb-2 text-white">Innovation</h3>
               <p className="text-gray-300">
-                We constantly push the boundaries of what's possible, embracing new technologies and creative solutions to solve complex problems.
+                We constantly push the boundaries of what&apos;s possible, embracing new technologies and creative solutions to solve complex problems.
               </p>
             </div>
             <div>
@@ -43,7 +43,7 @@ export default function About() {
         <section>
           <h2 className="text-2xl font-semibold mb-4 text-white">Join Our Journey</h2>
           <p className="text-gray-300">
-            We're always looking for passionate individuals and organizations who share our vision of using technology to create a better world. Whether you're interested in partnering with us or joining our team, we'd love to hear from you.
+            We&apos;re always looking for passionate individuals and organizations who share our vision of using technology to create a better world. Whether you&apos;re interested in partnering with us or joining our team, we&apos;d love to hear from you.
           </p>
         </section>
       </div>
