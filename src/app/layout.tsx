@@ -19,10 +19,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-[#0f172a]`}>
+    <html lang="en" className="h-full">
+      <body className={`${inter.className} min-h-full flex flex-col bg-[#0f172a]`}>
         <ClientSplashWrapper>
-          <nav className="bg-[#0f172a] border-b border-gray-800">
+          <nav className="bg-[#0f172a] border-b border-gray-800 sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between h-16">
                 <div className="flex items-center">
@@ -30,7 +30,7 @@ export default function RootLayout({
                     Seismic Labs
                   </Link>
                 </div>
-                <div className="flex items-center space-x-8">
+                <div className="hidden md:flex items-center space-x-8">
                   <Link href="/" className="text-gray-300 hover:text-white transition-colors">
                     Home
                   </Link>
@@ -51,7 +51,7 @@ export default function RootLayout({
             </div>
           </nav>
 
-          <main>{children}</main>
+          <main className="flex-grow">{children}</main>
 
           <footer className="border-t border-gray-800 mt-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
