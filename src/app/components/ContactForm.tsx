@@ -3,10 +3,10 @@
 import React, { useState } from 'react'
 
 interface ContactFormProps {
-  recipientEmail: string;
+  recipientEmail?: string;
 }
 
-export default function ContactForm({ recipientEmail }: ContactFormProps) {
+export default function ContactForm({ recipientEmail = "hellodaries@gmail.com" }: ContactFormProps) {
   const [formData, setFormData] = useState({
     company: '',
     email: '',

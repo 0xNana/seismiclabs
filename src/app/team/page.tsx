@@ -3,7 +3,7 @@ import React from 'react'
 export default function Team() {
   const team = [
     {
-      name: "Daries N.Y. Antwi",
+      name: "Mr. Ace",
       role: "Founder & Chief Architect",
       bio: "A visionary technologist & entrepreneur with a passion for transforming societies through innovative solutions.",
       socials: {

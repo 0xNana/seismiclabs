@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Somnia Swap STT</title>
+</head>
+<body>
+  <h2>Swap STT for Another Token</h2>
+  
+  <label>Token Out Address:</label><br>
+  <input type="text" id="tokenOut" placeholder="0x..." size="50"><br><br>
+
+  <label>STT Amount:</label><br>
+  <input type="text" id="sttAmount" placeholder="1.0"><br><br>
+
+  <button id="swapBtn">Swap Now</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script>
+    const WSTT = "0xF22eF0085f6511f70b01a68F360dCc56261F768a";
+    const UNISWAPV2_ROUTER = "0xa9144daD8471d6Ce111567b0F07AEdcA11f07dbC";
+
+    const routerAbi = [
+      "function swapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline) external payable returns (uint[] memory amounts)"
+    ];
+
+    document.getElementById("swapBtn").onclick = async () => {
+      if (!window.ethereum) {
+        alert("Please install MetaMask");
+        return;
+      }
+
+      const tokenOut = document.getElementById("tokenOut").value;
+      const sttAmountIn = document.getElementById("sttAmount").value;
+
+      if (!ethers.utils.isAddress(tokenOut)) {
+        alert("Invalid token address");
+        return;
+      }
+
+      try {
+        await ethereum.request({ method: "eth_requestAccounts" });
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+
+        const router = new ethers.Contract(UNISWAPV2_ROUTER, routerAbi, signer);
+
+        const path = [WSTT, tokenOut];
+        const to = await signer.getAddress();
+        const deadline = Math.floor(Date.now() / 1000) + 60 * 5;
+
+        const tx = await router.swapExactETHForTokens(
+          0, // amountOutMin
+          path,
+          to,
+          deadline,
+          { value: ethers.utils.parseEther(sttAmountIn) }
+        );
+
+        console.log("Tx sent:", tx.hash);
+        alert("Transaction sent: " + tx.hash);
+
+        await tx.wait();
+        alert("✅ Swap completed");
+      } catch (err) {
+        console.error(err);
+        alert("Error: " + err.message);
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+ C:\\seismic_labs\\.dart_tool\\flutter_build\\3711594487a1e92cb7b7d30b674e08a5\\native_assets.yaml: 
