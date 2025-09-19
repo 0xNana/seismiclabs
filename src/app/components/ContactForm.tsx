@@ -16,13 +16,13 @@ export default function ContactForm({ recipientEmail = "hellodaries@gmail.com" }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create mailto URL with form data
+    // Create Gmail compose URL with form data
     const subject = `Contact from ${formData.company}`;
     const body = `Message from ${formData.company}\nEmail: ${formData.email}\n\n${formData.message}`;
-    const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
-    // Open email client
-    window.location.href = mailtoUrl;
+    // Redirect to Gmail
+    window.open(gmailUrl, '_blank');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
