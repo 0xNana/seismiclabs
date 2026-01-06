@@ -1,6 +1,4 @@
-'use client'
-
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 interface ContactFormProps {
   recipientEmail?: string;
@@ -15,13 +13,11 @@ export default function ContactForm({ recipientEmail = "hellodaries@gmail.com" }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create Gmail compose URL with form data
+  
     const subject = `Contact from ${formData.company}`;
     const body = `Message from ${formData.company}\nEmail: ${formData.email}\n\n${formData.message}`;
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
-    // Redirect to Gmail
     window.open(gmailUrl, '_blank');
   };
 
@@ -34,7 +30,7 @@ export default function ContactForm({ recipientEmail = "hellodaries@gmail.com" }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <input
           type="text"
@@ -43,7 +39,7 @@ export default function ContactForm({ recipientEmail = "hellodaries@gmail.com" }
           value={formData.company}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
         />
       </div>
       <div>
@@ -54,7 +50,7 @@ export default function ContactForm({ recipientEmail = "hellodaries@gmail.com" }
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
         />
       </div>
       <div>
@@ -64,16 +60,16 @@ export default function ContactForm({ recipientEmail = "hellodaries@gmail.com" }
           value={formData.message}
           onChange={handleChange}
           required
-          rows={4}
-          className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+          rows={6}
+          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all"
         />
       </div>
       <button
         type="submit"
-        className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+        className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
       >
         Send Message
       </button>
     </form>
   );
-} 
+}
