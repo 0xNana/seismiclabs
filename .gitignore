@@ -10,6 +10,12 @@ node_modules/
 /dist
 /build
 
+# Brand Assets Exports
+/exports
+/export
+export
+exports
+
 # Misc
 .DS_Store
 *.pem
